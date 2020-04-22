@@ -746,6 +746,10 @@ local function getTagFunc(tagstr)
 end
 
 local function registerEvent(fontstr, event)
+	if Private.isSL and event == "UNIT_HEALTH_FREQUENT" then
+		event = "UNIT_HEALTH"
+	end
+
 	if(not events[event]) then events[event] = {} end
 
 	eventFrame:RegisterEvent(event)

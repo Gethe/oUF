@@ -1,6 +1,8 @@
 local parent, ns = ...
 local Private = ns.oUF.Private
 
+Private.isSL = select(4, _G.GetBuildInfo()) >= 90001
+
 function Private.argcheck(value, num, ...)
 	assert(type(num) == 'number', "Bad argument #2 to 'argcheck' (number expected, got " .. type(num) .. ')')
 

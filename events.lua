@@ -100,6 +100,10 @@ function frame_metatable.__index:RegisterEvent(event, func, unitless)
 	-- portrait updates.
 	if(self.__eventless and event ~= 'UNIT_PORTRAIT_UPDATE' and event ~= 'UNIT_MODEL_CHANGED') then return end
 
+	if Private.isSL and event == "UNIT_HEALTH_FREQUENT" then
+		event = "UNIT_HEALTH"
+	end
+
 	argcheck(event, 2, 'string')
 	argcheck(func, 3, 'function')
 
